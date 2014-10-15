@@ -25,4 +25,11 @@ public class TownConstants {
 	public final static int SPECIAL_VILLAGE = 5;
 	public final static int FORMAT_ERROR = -1;
 	public final static int UNKNOWN_ERROR = -2;
+	
+	
+	public final static int NAMING_UNTESTED = 0;
+	public final static int NAMING_STANDARD = 1;
+	public final static int NAMING_SPECTOWN = 2;
+	public final static int NAMING_SPECVIL = 3;
+	
 }

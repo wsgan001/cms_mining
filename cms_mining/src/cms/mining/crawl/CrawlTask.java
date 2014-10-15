@@ -7,9 +7,11 @@
  */ 
 package cms.mining.crawl;
 
+import java.io.IOException;
+
 /** 
  * ClassName : CrawlTask <br/> 
- * Description : TODO ADD FUNCTION. <br/> 
+ * Description : Crawl Task, get resource by a url list and output formated result. <br/> 
  * date: Oct 15, 2014 11:38:22 AM <br/> 
  * 
  * @author zhanglei01 
@@ -17,12 +19,12 @@ package cms.mining.crawl;
  * @since JDK 1.6 
  */
 public abstract class CrawlTask {
-
-	/**
-	 * 
-	 */
-	public CrawlTask() {
-		// TODO Auto-generated constructor stub
-	}
+	
+	public abstract String crawl(String url) throws IOException;
+	
+	public abstract String format(String text);
+	
+	public abstract void exec() throws IOException;
+	
 
 }

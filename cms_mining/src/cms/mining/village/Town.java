@@ -24,6 +24,7 @@ public class Town {
 	private String name;
 	private String parent;
 	private Set<String> villages;
+	private int levelFlag;
 	
 	/**
 	 * 
@@ -31,6 +32,7 @@ public class Town {
 	public Town() {
 		this.name = "";
 		this.parent = "";
+		this.levelFlag = TownConstants.NAMING_UNTESTED;
 		this.villages = new HashSet<>();
 	}
 
@@ -91,7 +93,6 @@ public class Town {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Town town = new Town();
 		System.out.println(town);
 		town.setName("向阳镇");
@@ -108,13 +109,30 @@ public class Town {
 		sb.append("\t");
 		sb.append(parent);
 		sb.append("\t");
-
+		
 		for (String village : villages) {
 			sb.append(village);
 			sb.append(";");
 		}
 		
-		return new String(sb).replaceAll(";$", "");
+		sb.deleteCharAt(sb.length()-1);
+		sb.append("\t");
+		sb.append(levelFlag);
+		return new String(sb);
+	}
+
+	/**
+	 * @return the levelFlag
+	 */
+	public int getLevelFlag() {
+		return levelFlag;
+	}
+
+	/**
+	 * @param levelFlag the levelFlag to set
+	 */
+	public void setLevelFlag(int levelFlag) {
+		this.levelFlag = levelFlag;
 	}
 
 }
