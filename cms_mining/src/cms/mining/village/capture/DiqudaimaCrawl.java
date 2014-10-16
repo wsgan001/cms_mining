@@ -93,7 +93,7 @@ public class DiqudaimaCrawl extends CommonCrawlTask {
 
 			if (++count % batchWriteSize == 0) {
 				writer.flush();
-				System.err.println("DiqudaimaCrawl: 已处理 " + count + " 条");
+				System.out.println("DiqudaimaCrawl: 已处理 " + count + " 条");
 			}
 		}
 	}

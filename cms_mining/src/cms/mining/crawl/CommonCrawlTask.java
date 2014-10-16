@@ -179,6 +179,7 @@ public class CommonCrawlTask extends CrawlTask {
 
 			if (++count % batchWriteSize == 0) {
 				writer.flush();
+				System.out.println("CommonCrawlTask: 已处理 " + count + " 条");
 			}
 		}
 	}
