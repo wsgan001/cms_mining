@@ -31,6 +31,7 @@ public abstract class TownTidyTask extends TidyTask {
 
 	protected static int batchWriteSize = 100;
 	protected Town town;
+	protected String extractedString;
 
 	/**
 	 * 
