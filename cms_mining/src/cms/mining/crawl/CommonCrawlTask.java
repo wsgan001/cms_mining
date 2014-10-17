@@ -81,6 +81,9 @@ public class CommonCrawlTask extends CrawlTask {
 		URL url = new URL(urlString);
 
 		conn = (HttpURLConnection) url.openConnection();
+		conn.setConnectTimeout(60000);
+		conn.setReadTimeout(60000);
+		
 		conn.connect();
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
