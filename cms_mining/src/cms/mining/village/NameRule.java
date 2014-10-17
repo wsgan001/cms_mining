@@ -25,7 +25,7 @@ public class NameRule {
 	public static boolean matchGeneralTownNaming(String s) {
 		if (s == null)
 			return false;
-		return s.matches("[^0-9a-zA-Z]+(镇|乡|街道|办事处|开发区)$");
+		return s.matches("[^0-9a-zA-Z?]+(镇|乡|街道|办事处|开发区)$");
 	}
 
 	/**
