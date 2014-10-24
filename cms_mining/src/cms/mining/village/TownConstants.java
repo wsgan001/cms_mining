@@ -23,6 +23,7 @@ public class TownConstants {
 	public final static int NO_VILLAGE = 3;
 	public final static int SPECIAL_TOWN = 4;
 	public final static int SPECIAL_VILLAGE = 5;
+	public final static int NOT_INTEGRATED = 6;
 	public final static int FORMAT_ERROR = -1;
 	public final static int UNKNOWN_ERROR = -2;
 	

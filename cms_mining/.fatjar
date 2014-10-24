@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Wed Oct 22 17:03:46 CST 2014
+onejar.license.required=false
+manifest.classpath=.
+manifest.removesigners=true
+onejar.checkbox=true
+jarname=geo_point.jar
+manifest.mergeall=true
+manifest.mainclass=cms.mining.task.GeoPointExtract
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=

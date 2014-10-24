@@ -74,9 +74,11 @@ public abstract class TownTidyTask extends TidyTask {
 		int countLackColumn = 0;
 		int countNoVillageTown = 0;
 		int countFormatErr = 0;
+		int countNotIntegrated = 0;
 		while ((line = reader.readLine()) != null && !"".equals(line)) {
 
 			countTotal++;
+			extractedString = "";
 			switch (analyse(line)) {
 			case TownConstants.NOT_CRAWLED:
 				writeTofile(line, fileName + "_out_", TownConstants.NOT_CRAWLED
@@ -88,12 +90,19 @@ public abstract class TownTidyTask extends TidyTask {
 						+ "_lackcolumn", charSet);
 				countLackColumn++;
 				break;
+			case TownConstants.NOT_INTEGRATED:
+				writeTofile(line, fileName + "_out_",
+						TownConstants.NOT_INTEGRATED + "_notintegrated",
+						charSet);
+				countNotIntegrated++;
+				break;
 			case TownConstants.NO_VILLAGE:
 				line = extract();
 				writeTofile(line, fileName + "_out_", TownConstants.NO_VILLAGE
 						+ "_novillage", charSet);
 				countNoVillageTown++;
 				break;
+
 			// case TownConstants.SPECIAL_TOWN:
 			// line = extract();
 			// writeTofile(line, fileName + "_out_", TownConstants.SPECIAL_TOWN
@@ -116,8 +125,8 @@ public abstract class TownTidyTask extends TidyTask {
 				}
 				break;
 			case TownConstants.FORMAT_ERROR:
-				writeTofile(line, fileName + "_out_", TownConstants.FORMAT_ERROR
-						+ "_formaterror", charSet);
+				writeTofile(line, fileName + "_out_",
+						TownConstants.FORMAT_ERROR + "_formaterror", charSet);
 				countFormatErr++;
 				break;
 			default:
@@ -140,6 +149,7 @@ public abstract class TownTidyTask extends TidyTask {
 		System.out.println("未抓取: " + countNotCrawled + " 条");
 		System.out.println("字段数不足: " + countLackColumn + " 条");
 		System.out.println("不包含村: " + countNoVillageTown + " 条");
+		System.out.println("信息不完整: " + countNotIntegrated + " 条");
 		System.out.println("格式错误: " + countFormatErr + " 条");
 		System.out.println("其它错误: " + countErr + " 条");
 	}
@@ -166,6 +176,7 @@ public abstract class TownTidyTask extends TidyTask {
 
 	/**
 	 * Analyse original info, and construct town object.
+	 * 
 	 * @param line
 	 * @return analyse flag to identify which class this line belongs to.
 	 */
